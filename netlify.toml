@@ -1,0 +1,20 @@
+[build]
+  # No build command needed for raw static files if bundling fails
+  command = "# no build" 
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+
+# Cache static assets (CSS, JS, Images, Fonts)
+# Since we are not hashing files, we use a shorter cache time or rely on Etags.
+# However, for assets/ paths which usually don't change often, we can set a reasonable cache.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"

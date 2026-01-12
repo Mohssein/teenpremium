@@ -1,0 +1,14 @@
+{
+  "name": "clean-site",
+  "version": "1.0.0",
+  "description": "Static site optimized for Netlify",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
